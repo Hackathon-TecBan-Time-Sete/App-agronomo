@@ -33,12 +33,12 @@ export class AppComponent implements OnInit {
       title: 'Mapa',
       url: '/app/tabs/map',
       icon: 'map'
-    },
-    {
-      title: 'Status',
-      url: '/app/tabs/about',
-      icon: 'information-circle'
     }
+    // {
+    //   title: 'Status',
+    //   url: '/app/tabs/about',
+    //   icon: 'information-circle'
+    // }
   ];
   loggedIn = false;
   dark = false;
