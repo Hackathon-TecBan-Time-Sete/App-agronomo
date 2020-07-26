@@ -11,6 +11,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 })
 export class SpeakerDetailPage {
   speaker: any;
+  profilePic = '/assets/img/speakers/agricultor.jpg'
+  nameUser: 'Augusto Bondança'
   
 
   constructor(
@@ -23,17 +25,12 @@ export class SpeakerDetailPage {
   ) {}
 
   ionViewWillEnter() {
-    this.dataProvider.load().subscribe((data: any) => {
-      const speakerId = this.route.snapshot.paramMap.get('speakerId');
-      if (data && data.speakers) {
-        for (const speaker of data.speakers) {
-          if (speaker && speaker.id === speakerId) {
-            this.speaker = speaker;
-            break;
-          }
-        }
+    this.confData.getSpeakers().subscribe(
+      data => {
+        this.speaker = data;
+        console.log('RETORNO API', this.speaker)
       }
-    });
+    )
   }
 
   openExternalUrl(url: string) {

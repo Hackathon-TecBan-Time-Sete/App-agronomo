@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { UserData } from './user-data';
 
@@ -131,17 +132,35 @@ export class ConferenceData {
     session.hide = !(matchesQueryText && matchesTracks && matchesSegment);
   }
 
-  getSpeakers() {
-    return this.load().pipe(
-      map((data: any) => {
-        return data.speakers.sort((a: any, b: any) => {
-          const aName = a.name.split(' ').pop();
-          const bName = b.name.split(' ').pop();
-          return aName.localeCompare(bName);
-        });
-      })
-    );
-  }
+  getSpeakers(): Observable<any[]> {
+    return new Observable<any[]>(observer => {
+          this.http.get<any[]>('http://ec2-54-173-4-143.compute-1.amazonaws.com/api/v1/user/GetUsuario').subscribe(
+            data => {
+              observer.next(data);
+              console.log(data)
+            },
+            error => {
+              let message = (error.error && error.error.message) ? error.error.message : 'No more details provided by backend';
+              observer.error(`Error fetching stimulus: ${error.message}. Details: ${message}`);
+            });
+
+    });
+}
+
+getSchedule(): Observable<any[]> {
+  return new Observable<any[]>(observer => {
+        this.http.get<any[]>('http://ec2-54-173-4-143.compute-1.amazonaws.com/api/v1/user/GetUsuarioSchedulle').subscribe(
+          data => {
+            observer.next(data);
+            console.log(data)
+          },
+          error => {
+            let message = (error.error && error.error.message) ? error.error.message : 'No more details provided by backend';
+            observer.error(`Error fetching stimulus: ${error.message}. Details: ${message}`);
+          });
+
+  });
+}
 
   getTracks() {
     return this.load().pipe(

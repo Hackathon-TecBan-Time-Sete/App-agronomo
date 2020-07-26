@@ -8,12 +8,20 @@ import { ConferenceData } from '../../providers/conference-data';
 })
 export class SpeakerListPage {
   speakers: any[] = [];
+  profilePic = '/assets/img/speakers/agricultor.jpg'
 
-  constructor(public confData: ConferenceData) {}
+  constructor(public confData: ConferenceData) { }
 
   ionViewDidEnter() {
-    this.confData.getSpeakers().subscribe((speakers: any[]) => {
-      this.speakers = speakers;
-    });
+
+    this.confData.getSpeakers().subscribe(
+      data => {
+        if(this.speakers.length == 0) {
+          this.speakers.push(data)
+        }
+        
+        console.log('RETORNO API', this.speakers)
+      }
+    )
   }
 }
