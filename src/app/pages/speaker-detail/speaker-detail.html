@@ -21,23 +21,23 @@
   </div>
 
   <div class="ion-padding speaker-detail">
-    <p>{{speaker?.about}} Say hello on social media!</p>
+    <p style="text-align: center;">{{speaker?.about}}</p>
 
     <hr>
 
-    <ion-chip color="twitter" button (click)="openExternalUrl('https://twitter.com/' + speaker.twitter)">
-      <ion-icon name="logo-twitter"></ion-icon>
-      <ion-label>Twitter</ion-label>
-    </ion-chip>
+    <div>
+      <p style="text-align: center"><b>Selecione uma data e horário:</b></p>
+    </div>
+    <ion-item>
+      <ion-label>Data da visita</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" placeholder="Selecione a data"></ion-datetime>
+    </ion-item>
 
-    <ion-chip color="dark" button (click)="openExternalUrl('https://github.com/ionic-team/ionic')">
-      <ion-icon name="logo-github"></ion-icon>
-      <ion-label>GitHub</ion-label>
-    </ion-chip>
+    <ion-item>
+      <ion-label>Selecione o horário</ion-label>
+      <ion-datetime displayFormat="HH:mm" placeholder="Selecione o horário"></ion-datetime>
+    </ion-item>
 
-    <ion-chip color="instagram" button (click)="openExternalUrl('https://instagram.com/ionicframework')">
-      <ion-icon name="logo-instagram"></ion-icon>
-      <ion-label>Instagram</ion-label>
-    </ion-chip>
+    <ion-button style="margin-top: 50px;" expand="block" color="success" fill="outline">Agendar visita</ion-button>
   </div>
 </ion-content>

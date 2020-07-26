@@ -20,14 +20,14 @@ import { UserData } from './providers/user-data';
 export class AppComponent implements OnInit {
   appPages = [
     {
-      title: 'Agenda',
-      url: '/app/tabs/schedule',
-      icon: 'calendar'
-    },
-    {
       title: 'Agricultores',
       url: '/app/tabs/speakers',
       icon: 'people'
+    },
+    {
+      title: 'Agenda',
+      url: '/app/tabs/schedule',
+      icon: 'calendar'
     },
     {
       title: 'Mapa',
