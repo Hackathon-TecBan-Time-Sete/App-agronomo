@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ConferenceData } from '../../providers/conference-data';
 import { ActionSheetController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
@@ -11,6 +11,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 })
 export class SpeakerDetailPage {
   speaker: any;
+  
 
   constructor(
     private dataProvider: ConferenceData,
@@ -18,6 +19,7 @@ export class SpeakerDetailPage {
     public actionSheetCtrl: ActionSheetController,
     public confData: ConferenceData,
     public inAppBrowser: InAppBrowser,
+    public router: Router
   ) {}
 
   ionViewWillEnter() {
@@ -102,5 +104,10 @@ export class SpeakerDetailPage {
     });
 
     await actionSheet.present();
+  }
+
+  book() {
+    alert('Visita agendada com sucesso!')
+    this.router.navigateByUrl('/app/tabs/schedule');
   }
 }

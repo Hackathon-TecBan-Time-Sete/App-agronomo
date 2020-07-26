@@ -21,57 +21,105 @@
   </div>
 
   <div class="about-info">
-    <h3 class="ion-padding-top ion-padding-start">Status</h3>
+    <h1 style="color: #1BB954; text-align: center;" class="ion-padding-top ion-padding-start">Avaliação</h1>
 
     <p class="ion-padding-start ion-padding-end">
-      The Ionic Conference is a one-day conference on {{ conferenceDate | date: 'mediumDate' }} featuring talks from the Ionic team. It is focused on Ionic applications being built with Ionic Framework. This includes migrating apps to the latest version of the framework, Angular concepts, Webpack, Sass, and many other technologies used in Ionic 2. Tickets are completely sold out, and we’re expecting more than 1000 developers – making this the largest Ionic conference ever!
+      Atenção, por determinação do BACEN é necessário o preenchimento do documento SICOR para uma Avaliação de crédito. Abaixo preencha as informações e avaliação do agricultor. 
     </p>
 
-    <h3 class="ion-padding-top ion-padding-start">Details</h3>
+    <h3 class="ion-padding-top ion-padding-start">Informações pessoais</h3>
 
-    <ion-list lines="none">
+    <ion-list>
       <ion-item>
-        <ion-label>
-          Location
-        </ion-label>
-        <ion-select [(ngModel)]="location" [interfaceOptions]="selectOptions">
-          <ion-select-option value="madison">Madison, WI</ion-select-option>
-          <ion-select-option value="austin">Austin, TX</ion-select-option>
-          <ion-select-option value="chicago">Chicago, IL</ion-select-option>
-          <ion-select-option value="seattle">Seattle, WA</ion-select-option>
-        </ion-select>
+        <ion-label>Nome Completo:</ion-label>
+        <ion-input></ion-input>
       </ion-item>
+
       <ion-item>
-        <ion-label>
-          Date
-        </ion-label>
-        <ion-datetime
-          displayFormat="MMM DD, YYYY"
-          max="2056"
-          [(ngModel)]="conferenceDate">
-        </ion-datetime>
+        <ion-label>CPF/CNPJ:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Data de Nascimento:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>RG:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nome da mãe:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nome do Pai:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Renda:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Endereço:</ion-label>
+        <ion-input></ion-input>
       </ion-item>
     </ion-list>
 
-    <h3 class="ion-padding-top ion-padding-start">Internet</h3>
+    <h3 class="ion-padding-top ion-padding-start">Dados segmentais</h3>
 
-    <ion-list lines="none">
+    <ion-list>
       <ion-item>
-        <ion-label>
-          Wifi network
-        </ion-label>
-        <ion-label class="ion-text-end">
-          ica{{conferenceDate | date: 'y'}}
-        </ion-label>
+        <ion-label>Tipo de plantação:</ion-label>
+        <ion-input></ion-input>
       </ion-item>
+
       <ion-item>
-        <ion-label>
-          Password
-        </ion-label>
-        <ion-label class="ion-text-end">
-          makegoodthings
-        </ion-label>
+        <ion-label>Ultima Safra:</ion-label>
+        <ion-input></ion-input>
       </ion-item>
+
+      <ion-item>
+        <ion-label>Qtd de funcionários:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Qtd de equipamentos:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Prevenções:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tamanho do terreno:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tempo de experiência:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
     </ion-list>
+
+    <h3 class="ion-padding-top ion-padding-start">Avaliação</h3>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Avaliação final:</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+    </ion-list>
+    <ion-button style="margin-top: 50px;" (click)="sendEvaluation()" expand="block" color="success" fill="outline">Enviar avaliação</ion-button>
   </div>
 </ion-content>

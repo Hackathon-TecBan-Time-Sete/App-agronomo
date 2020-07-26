@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ConferenceData } from '../../providers/conference-data';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserData } from '../../providers/user-data';
 
 @Component({
@@ -17,7 +17,8 @@ export class SessionDetailPage {
   constructor(
     private dataProvider: ConferenceData,
     private userProvider: UserData,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public router: Router,
   ) { }
 
   ionViewWillEnter() {
@@ -47,8 +48,8 @@ export class SessionDetailPage {
     this.defaultHref = `/app/tabs/schedule`;
   }
 
-  sessionClick(item: string) {
-    console.log('Clicked', item);
+  evaluation() {
+    this.router.navigateByUrl('/app/tabs/about');
   }
 
   toggleFavorite() {

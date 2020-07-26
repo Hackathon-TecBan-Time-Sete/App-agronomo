@@ -27,7 +27,7 @@ export class SignupPage {
 
     if (form.valid) {
       this.userData.signup(this.signup.username);
-      this.router.navigateByUrl('/tutorial');
+      this.router.navigateByUrl('/app/tabs/speakers');
     }
   }
 }
