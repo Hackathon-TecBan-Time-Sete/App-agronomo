@@ -18,6 +18,8 @@ import { UserData } from './providers/user-data';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
+
+  logo = '../assets/logoAB.png'
   appPages = [
     {
       title: 'Agricultores',
